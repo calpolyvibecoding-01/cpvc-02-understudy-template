@@ -25,13 +25,17 @@ language before showing technical terms, without inventing a missing purpose.]
 
 - Put the reader's answer and next action first. Use clear type, whitespace and
   one restrained accent. Avoid repeated card boxes and decorative statistics.
-- Use native controls, visible keyboard focus, readable contrast and comfortable
-  touch targets (aim for 44px). Reflow for phones; do not shrink a desktop layout.
+- Use native controls, visible keyboard focus, readable contrast and comfortably
+  sized controls. Prioritize the student desktop; mobile design and testing are
+  not required for this session.
 - Optional motion must explain an action: brief transform/opacity feedback,
   reduced-motion support, no idle loops or animation library. Visual relationships
   must come from actual data, not decorative lines that imply evidence.
 - No em dashes or hype in page copy. Prefer plain language.
-- Inspect desktop and phone views, test the main action and data loading, then
+- Preview the build branch locally with its unchanged JSON fixtures over HTTP
+  in the Codex desktop app's side browser. Identify the branch being previewed.
+  Keep preview-only files out of the repo and leave Pages publishing from main.
+- Inspect the desktop preview, test the main action and data loading, then
   summarize what changed in plain language and any untested checks. Point out
   where the diff lives; do not require students to interpret it or complete a
   revision round. Do not claim tests you did not run.
