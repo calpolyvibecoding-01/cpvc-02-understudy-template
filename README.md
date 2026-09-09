@@ -16,9 +16,16 @@ Do not try to reproduce all its features today.
 By 1 PM: one fictional profile, one specific reader, one supported claim, one
 instruction-file rule followed, a reviewed change and a live link.
 
+> [!NOTE]
+> When you reach a **STOP**, wait there. We move as a room. Done early? Help
+> the person next to you before moving on.
+
 Bring a laptop and GitHub account. Lane A uses Codex on your personal ChatGPT
-account, not Cal Poly's workspace. [Lane C](#lane-c-browser-fallback) needs no
-card, Codex access, download or API key.
+account, not Cal Poly's workspace.
+
+> [!TIP]
+> **No card or Codex access?** [Lane C](#lane-c-browser-fallback) needs no card,
+> Codex access, download or API key. You still practice the same core lesson.
 
 ## 1. Make your own copy
 
@@ -29,7 +36,15 @@ Keep last week's repo. No personal data.
 In your copy: **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
 Open GitHub's displayed link after deployment. For a 404, check **Actions** and refresh.
 
-**STOP 1:** Your link shows the starter. It reports facts, not a recommendation.
+---
+
+> [!IMPORTANT]
+> ## 🛑 STOP 1 · Your starter is live
+>
+> Do not move on until **your link opens and shows the starter**. It reports
+> facts, not a recommendation. Need help? Ask an officer. Done? Check on a neighbor.
+
+---
 
 ## 2. Decide before prompting
 
@@ -48,6 +63,10 @@ to invent a purpose.
 Edit [AGENTS.md](AGENTS.md): replace the reader-rule placeholder with one rule you
 can check on screen. Commit it. SPEC is today's target; AGENTS is the standing brief.
 
+> [!IMPORTANT]
+> **Write the brief before you prompt.** All six TARGET lines and your AGENTS
+> reader rule should be filled in and committed before the next step.
+
 ## 3. Let the understudy read the brief
 
 In [Codex](https://chatgpt.com/codex), connect GitHub to **your copy**, create its
@@ -57,7 +76,15 @@ environment if prompted, and select it. No keys or dependencies. Send:
 > Summarize my reader's question, one claim the data supports, and my reader rule.
 > Flag any unfilled TARGET line or unsupported assumption before building.
 
-**STOP 2:** It read the right repo and understood your decision. Correct it now.
+---
+
+> [!IMPORTANT]
+> ## 🛑 STOP 2 · Check the brief before the build
+>
+> The agent read **your repo** and understood **your reader, question and rule**.
+> It has not edited anything. If its summary is wrong, correct it now.
+
+---
 
 Then send:
 
@@ -82,13 +109,25 @@ A **diff** shows additions in green, removals in red. Fix one failure: “Move t
 answer above the secondary detail on phones.” Recheck the page and diff, not extra
 features. Record any untested checks.
 
+> [!WARNING]
+> **Do not merge a change you have not reviewed.** Check the page and the diff.
+> A polished claim still needs a source; an agent's summary is not proof it works.
+
 ## 5. Ship the reviewed change
 
 Ask Codex to open a **pull request** (a change proposal). Review **Files changed**,
 then merge. After deployment, refresh your Pages link and check the result. Submit
 the link and build type at [calpolyvibecoding.com](https://calpolyvibecoding.com).
 
-**STOP 3:** A working public page, a reviewed change, and a submitted link.
+---
+
+> [!IMPORTANT]
+> ## 🛑 STOP 3 · Reviewed, live and submitted
+>
+> You have **a working public page, a reviewed change and a submitted link**.
+> That is the guided build. Extra features belong in open build, not before this stop.
+
+---
 
 ## Open build: one more pass
 
@@ -97,7 +136,7 @@ reference, borrow a hierarchy rule, capture before/after and fix one issue.
 Graphs, export, storage and motion are extras, not requirements. No live APIs today.
 
 **Lane B:** optional Claude Code setup at the officer table. Use the same brief
-and tests. Detailed challenges are in the [facilitator guide](docs/FACILITATOR.md).
+and tests.
 
 ### Lane C: browser fallback
 
@@ -116,5 +155,3 @@ evidence and a human test. **Evidence:** a working link you can explain.
 The Loop: **spec → build → test → deploy → iterate**. The model proposes text and
 actions; the harness runs tools and returns results. AGENTS.md briefs that process.
 AI helped at **build time**; ordinary code runs for visitors. No runtime model or key.
-
-[Facilitator timing, recovery and preflight](docs/FACILITATOR.md)
