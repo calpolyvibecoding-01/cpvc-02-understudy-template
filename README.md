@@ -180,16 +180,34 @@ Then send:
 > Work on a new branch, not main. Change only index.html. Put the answer first,
 > show its source fields, and give
 > the reader one useful next action. Keep facts, interpretation and questions
-> distinct. Test the page and show what changed. Do not open a PR or merge yet.
+> distinct. Build for desktop for this session; mobile is not required.
+> Test the page and show what changed. Do not open a PR or merge yet.
 
-## 4. Check the page
+## 4. Preview in Codex and check the page
 
-Open the page on desktop and at phone width. Need a preview? Ask an officer.
+In the **same Codex desktop task**, send:
+
+> Create a local preview from my build branch, not main. Bring its index.html
+> and the four unchanged profile JSON files into a local preview folder.
+> Start a local web server and open the preview in the side browser of the
+> Codex desktop app. Tell me which branch I am viewing and keep the preview
+> running while I check it. Use the same files that will go into the pull request.
+> Do not change GitHub Pages settings, add preview files to the repo, or merge.
+
+> [!NOTE]
+> **Preview here; publish after merging.** Your public Pages link still shows
+> main. The side-browser preview shows your unmerged build on this laptop, not
+> a second public link. No GitHub cloud editor is needed. Keep the original
+> Pages link in your portal submission.
+
+Check the preview on your **desktop only**. Mobile design and testing are not
+required for this session. If the preview does not open, ask an officer.
+
 Ask your neighbor: **“What is this saying, and what would you do next?”**
 
 1. Can you point from the main claim to a source field in the JSON?
 2. Did your AGENTS reader rule visibly affect the result?
-3. Is the answer readable on a phone, with a usable next action?
+3. Is the answer readable on your laptop, with a usable next action?
 
 This is a quick check of the result, not a code-review exercise or a required
 revision round. If the page will not load or something seems wrong, ask an officer.
