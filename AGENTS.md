@@ -32,7 +32,9 @@ language before showing technical terms, without inventing a missing purpose.]
   must come from actual data, not decorative lines that imply evidence.
 - No em dashes or hype in page copy. Prefer plain language.
 - Inspect desktop and phone views, test the main action and data loading, then
-  summarize the diff and any untested checks. Do not claim tests you did not run.
+  summarize what changed in plain language and any untested checks. Point out
+  where the diff lives; do not require students to interpret it or complete a
+  revision round. Do not claim tests you did not run.
 - Do not open a PR or merge until the human approves the reviewed change.
 
 Done means the six-line TARGET passes, not that every possible feature exists.
