@@ -1,0 +1,84 @@
+{
+  "_cpvc": {
+    "status": "SYNTHETIC",
+    "note": "Fictional teaching profile. Not a real person and not a live GitHub snapshot.",
+    "lane": "Consumer Tech & Retail"
+  },
+  "profile": {
+    "login": "REPLACE-ME-consumer",
+    "name": "Sample Consumer Profile",
+    "bio": "Ecommerce and storefronts. Design-leaning.",
+    "company": null,
+    "blog": "",
+    "location": null,
+    "public_repos": 12,
+    "followers": 29,
+    "following": 57,
+    "created_at": "2022-11-05T16:00:00Z",
+    "updated_at": "2026-09-01T20:15:00Z"
+  },
+  "repos": [
+    {
+      "name": "storefront-kit",
+      "description": "Headless storefront starter",
+      "language": "TypeScript",
+      "stargazers_count": 64,
+      "forks_count": 0,
+      "has_readme": true,
+      "created_at": "2024-01-22T12:00:00Z",
+      "pushed_at": "2026-08-25T10:05:00Z",
+      "topics": [
+        "ecommerce"
+      ],
+      "fork": false
+    },
+    {
+      "name": "cart-abandon",
+      "description": "Recovery email timing experiments",
+      "language": "TypeScript",
+      "stargazers_count": 9,
+      "forks_count": 0,
+      "has_readme": true,
+      "created_at": "2025-04-30T14:00:00Z",
+      "pushed_at": "2026-07-08T09:00:00Z",
+      "topics": [],
+      "fork": false
+    },
+    {
+      "name": "product-photos",
+      "description": "Batch background removal",
+      "language": "Python",
+      "stargazers_count": 17,
+      "forks_count": 0,
+      "has_readme": true,
+      "created_at": "2024-09-13T11:00:00Z",
+      "pushed_at": "2026-03-21T15:30:00Z",
+      "topics": [],
+      "fork": false
+    },
+    {
+      "name": "brand-tokens",
+      "description": "Design tokens for a small label",
+      "language": "CSS",
+      "stargazers_count": 2,
+      "forks_count": 0,
+      "has_readme": true,
+      "created_at": "2025-11-02T09:00:00Z",
+      "pushed_at": "2026-08-30T13:22:00Z",
+      "topics": [],
+      "fork": false
+    },
+    {
+      "name": "shopify-theme-fork",
+      "description": null,
+      "language": "Liquid",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "has_readme": false,
+      "created_at": "2023-06-19T08:00:00Z",
+      "pushed_at": "2023-06-19T08:40:00Z",
+      "topics": [],
+      "fork": true
+    }
+  ]
+}

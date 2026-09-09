@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Understudy | CPVC starter</title>
+  <style>
+    :root { color-scheme: light; --paper: #f5f3ed; --ink: #172e33; --teal: #24574e; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 18px/1.6 Georgia, "Times New Roman", serif; }
+    main { max-width: 760px; margin: auto; padding: 48px 24px; }
+    h1, h2, button, .label { font-family: Arial, sans-serif; }
+    h1 { font-size: clamp(32px, 6vw, 52px); line-height: 1.08; letter-spacing: -.035em; margin: 20px 0; }
+    h2 { font-size: 23px; margin: 36px 0 8px; }
+    .label { color: var(--teal); font-size: 13px; letter-spacing: .06em; }
+    p { max-width: 60ch; }
+    dl { margin: 20px 0; }
+    .row { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid #c3cdc5; }
+    dt { flex: 1; }
+    dd { margin: 0; font-family: Arial, sans-serif; font-variant-numeric: tabular-nums; }
+    button { min-height: 44px; padding: 10px 18px; background: var(--teal); color: white; border: 0; font-size: 16px; cursor: pointer; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--teal); outline-offset: 4px; }
+    button:active { background: var(--ink); }
+    a { color: var(--teal); text-underline-offset: 3px; }
+    code { overflow-wrap: anywhere; font-size: .9em; }
+    .note { border-top: 2px solid var(--teal); margin-top: 32px; padding-top: 16px; }
+    [hidden] { display: none !important; }
+    @media (max-width: 400px) { main { padding: 28px 20px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">CPVC / SESSION 02 / FICTIONAL TEACHING DATA</p>
+    <h1>What would you want<br>this reader to understand?</h1>
+    <p>Project counts are a starting point, not a story. Choose one reader and one
+      question before asking an agent to build your answer.</p>
+    <p id="status" role="status" aria-live="polite">Loading the local sample…</p>
+    <button id="retry" type="button" hidden>Try again</button>
+    <section id="snapshot" aria-labelledby="name" hidden>
+      <h2 id="name"></h2>
+      <p id="bio"></p>
+      <dl id="stats"></dl>
+      <p id="source"></p>
+      <p>Only listed projects are available to inspect. A README flag says a file
+        is present, not that it is good. These facts do not establish project quality.</p>
+    </section>
+    <div class="note">
+      <strong>This is the starter, not the answer.</strong>
+      <p>Write your six-line TARGET in SPEC.md. Add one reader rule to AGENTS.md.
+        Then turn these facts into something that helps that person decide.</p>
+      <a href="https://github.com/calpolyvibecoding-01/cpvc-02-understudy-template#readme">Session instructions</a>
+    </div>
+  </main>
+  <script>
+    // Choose ONE fixture named in SPEC.md. Keep the supplied JSON files unchanged.
+    const PROFILE = 'profile-starter.json';
+    const status = document.getElementById('status');
+    const retry = document.getElementById('retry');
+    const snapshot = document.getElementById('snapshot');
+
+    async function loadProfile() {
+      snapshot.hidden = true;
+      retry.hidden = true;
+      status.textContent = 'Loading the local sample…';
+      try {
+        const response = await fetch(PROFILE);
+        if (!response.ok) throw new Error('File could not be loaded.');
+        const data = await response.json();
+        if (!data.profile || !Array.isArray(data.repos) ||
+            data.repos.some(repo => !repo || typeof repo.name !== 'string' || typeof repo.has_readme !== 'boolean')) {
+          throw new Error('The sample needs a profile and a valid repos list.');
+        }
+        const rows = [
+          ['Listed projects', data.repos.length],
+          ['Listed projects with a README', data.repos.filter(repo => repo.has_readme).length],
+          ['Reported public repos', data.profile.public_repos ?? 'Not supplied']
+        ];
+        document.getElementById('name').textContent = data.profile.name || data.profile.login || 'Unnamed profile';
+        document.getElementById('bio').textContent = data.profile.bio || 'No bio supplied.';
+        const stats = document.getElementById('stats');
+        stats.replaceChildren();
+        for (const [label, value] of rows) {
+          const row = document.createElement('div');
+          row.className = 'row';
+          const term = document.createElement('dt');
+          const detail = document.createElement('dd');
+          term.textContent = label;
+          detail.textContent = String(value);
+          row.append(term, detail);
+          stats.append(row);
+        }
+        document.getElementById('source').textContent = 'Source: ' + PROFILE + ' · repos.length, repos[].has_readme, profile.public_repos';
+        snapshot.hidden = false;
+        status.textContent = data.repos.length ? 'Local sample loaded. No recommendation has been made.' : 'No listed projects. There is nothing to compare. Choose another supplied file in PROFILE and reload.';
+      } catch (error) {
+        status.textContent = 'Could not read the sample. Check the PROFILE filename and JSON, then try again. Use GitHub Pages or a local web server, not a double-clicked file.';
+        retry.hidden = false;
+      }
+    }
+    retry.addEventListener('click', loadProfile);
+    loadProfile();
+    // Open-build test: use a nonexistent filename, inspect the message, then
+    // RESTORE PROFILE and reload successfully before reviewing and merging.
+  </script>
+</body>
+</html>
