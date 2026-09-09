@@ -182,51 +182,37 @@ Then send:
 > the reader one useful next action. Keep facts, interpretation and questions
 > distinct. Test the page and show what changed. Do not open a PR or merge yet.
 
-## 4. Test, revise once, review
+## 4. Check the page
 
-Inspect desktop and phone views. Need a preview? Ask an officer. An agent's
-summary is not a visual test.
+Open the page on desktop and at phone width. Need a preview? Ask an officer.
+Ask your neighbor: **“What is this saying, and what would you do next?”**
 
-Ask your neighbor: **“What is this saying, and what would you do next?”** Then:
-
-1. Can you point from the main claim to an exact field in the JSON?
+1. Can you point from the main claim to a source field in the JSON?
 2. Did your AGENTS reader rule visibly affect the result?
 3. Is the answer readable on a phone, with a usable next action?
-4. Does the diff change only `index.html`, without removing needed behavior?
 
-A **diff** shows additions in green, removals in red. Fix one failure: “Move the
-answer above the secondary detail on phones.” Recheck the page and diff, not extra
-features. Record any untested checks.
+This is a quick check of the result, not a code-review exercise or a required
+revision round. If the page will not load or something seems wrong, ask an officer.
 
-> [!WARNING]
-> **Do not merge a change you have not reviewed.** Check the page and the diff.
-> A polished claim still needs a source; an agent's summary is not proof it works.
+## 5. Ship the checked page
 
-## 5. Ship the reviewed change
-
-Ask Codex to open a **pull request** (a change proposal). Review **Files changed**,
-then merge. After deployment, refresh the **same Pages link you submitted in
-Part 1** and check the result. Your submitted URL now shows the updated build;
-you do not need a second submission for the same link.
+Ask Codex to open a **pull request** (a change proposal), then open its link in
+GitHub. Notice the **Files changed** tab: this is where the **diff** shows what
+changed, with additions in green and removals in red.
 
 > [!NOTE]
-> **You coordinate; the agent changes files.** Open the PR link from Codex in
-> GitHub. If it needs work, request a focused revision in the same Codex task,
-> then refresh **Files changed**. You do not need to copy the HTML back manually.
-> You still decide whether to merge; connecting GitHub is not approval to ship.
+> **You do not need to understand the code diff today.** For this low-risk build
+> with fictional data, focus on the page checks above. In later weeks, we will
+> practice critically analyzing diffs and reviewing higher-risk changes.
 
-<details>
-<summary>Optional: ask Codex for a revision directly from the GitHub PR</summary>
+After checking the page, merge the pull request. Refresh the **same Pages link
+you submitted in Part 1** after deployment and check the result. Your submitted
+URL now shows the updated build; you do not need a second submission for it.
 
-This is a separate Codex cloud feature, not enabled by installing the GitHub
-plugin alone. Once Codex cloud is set up for the repo, a PR comment such as
-`@codex make the main action readable on phones; change only index.html; do not merge`
-starts a cloud task using that PR as context. Follow its task link and review the
-updated branch before merging. If access prevents it, return to your Codex task.
-This is optional, not another setup requirement for the guided hour.
-[How PR comments work](https://learn.chatgpt.com/docs/third-party/github#give-codex-other-tasks).
-
-</details>
+> [!IMPORTANT]
+> **You still decide whether to ship.** Connecting GitHub is not approval to
+> merge. If you are unsure about the result, ask an officer before merging.
+> You do not need to copy the HTML back manually.
 
 ---
 
@@ -238,11 +224,10 @@ This is optional, not another setup requirement for the guided hour.
 
 ---
 
-## Open build: one more pass
+## After the guided build
 
-The Clinic offers reliability, design and instruction-file practice. Inspect one
-reference, borrow a hierarchy rule, capture before/after and fix one issue.
-Graphs, export, storage and motion are extras, not requirements. No live APIs today.
+No extra challenge is required. Use remaining time to explore your page or help a
+neighbor. The Clinic is available for questions. No live APIs today.
 
 **Lane B:** optional Claude Code setup at the officer table. Use the same brief
 and tests.
@@ -251,9 +236,9 @@ and tests.
 
 In a free browser chat, upload AGENTS.md, SPEC.md, index.html and your JSON, or paste
 them with filenames. Use the same prompts. Download the HTML and replace
-`index.html` in GitHub's editor. Review **Preview changes**, choose a **new branch**,
-propose the change and open a PR. Review, merge and check Pages. An officer can
-help preview. You miss repo-connected tools, not Judgment.
+`index.html` in GitHub's editor. Notice **Preview changes**, then choose a **new
+branch**, propose the change and open a PR. Use the same page checks and merge
+steps above. An officer can help preview. You miss repo-connected tools, not Judgment.
 
 ## What you practiced
 
