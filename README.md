@@ -25,7 +25,7 @@ Bring a laptop and GitHub account. Lane A uses Codex on your personal ChatGPT
 account, not Cal Poly's workspace.
 
 > [!TIP]
-> **No card or Codex access?** [Lane C](#lane-c-browser-fallback) needs no card,
+> **No card or Codex access?** [Lane B](#appendix-lane-b-browser-fallback) needs no card,
 > Codex access, download or API key. You still practice the same core lesson.
 
 ## 1. Make your own copy
@@ -140,7 +140,7 @@ pane. GitHub holds your files and the final review; Codex is where you brief the
 > Choose **All repositories**, or add your new repo to the selected list, and
 > **Save**. Return to Codex and retry with your repo URL. These are account settings,
 > not the repository's Settings tab. If the account is wrong or access is still
-> missing, ask an officer or use Lane C. Do not create extra copies to fix access.
+> missing, ask an officer or use Lane B. Do not create extra copies to fix access.
 
 ### C. Prove the connection works before editing
 
@@ -242,22 +242,6 @@ URL now shows the updated build; you do not need a second submission for it.
 
 ---
 
-## After the guided build
-
-No extra challenge is required. Use remaining time to explore your page or help a
-neighbor. The Clinic is available for questions. No live APIs today.
-
-**Lane B:** optional Claude Code setup at the officer table. Use the same brief
-and tests.
-
-### Lane C: browser fallback
-
-In a free browser chat, upload AGENTS.md, SPEC.md, index.html and your JSON, or paste
-them with filenames. Use the same prompts. Download the HTML and replace
-`index.html` in GitHub's editor. Notice **Preview changes**, then choose a **new
-branch**, propose the change and open a PR. Use the same page checks and merge
-steps above. An officer can help preview. You miss repo-connected tools, not Judgment.
-
 ## What you practiced
 
 **Context:** TARGET + standing instructions. **Capability:** the harness reads
@@ -267,3 +251,11 @@ evidence and a human test. **Evidence:** a working link you can explain.
 The Loop: **spec → build → test → deploy → iterate**. The model proposes text and
 actions; the harness runs tools and returns results. AGENTS.md briefs that process.
 AI helped at **build time**; ordinary code runs for visitors. No runtime model or key.
+
+## Appendix: Lane B, browser fallback
+
+In a free browser chat, upload AGENTS.md, SPEC.md, index.html and your JSON, or paste
+them with filenames. Use the same prompts. Download the HTML and replace
+`index.html` in GitHub's editor. Notice **Preview changes**, then choose a **new
+branch**, propose the change and open a PR. Use the same page checks and merge
+steps above. An officer can help preview. You miss repo-connected tools, not Judgment.
