@@ -69,12 +69,63 @@ can check on screen. Commit it. SPEC is today's target; AGENTS is the standing b
 
 ## 3. Let the understudy read the brief
 
-In [Codex](https://chatgpt.com/codex), connect GitHub to **your copy**, create its
-environment if prompted, and select it. No keys or dependencies. Send:
+### A. Connect your GitHub account
+
+Keep **your GitHub repo** open. Open [Codex](https://chatgpt.com/codex) in a second
+tab. GitHub holds your files and the final review; Codex is where you brief the agent.
+
+1. **Sign in to your personal ChatGPT account**, not the Cal Poly workspace.
+2. Choose **Connect GitHub** when prompted. Sign in to the GitHub account that
+   owns the copy you made in Part 1. This is a connection between accounts, not
+   uploading a ZIP or pasting a repository link into an ordinary chat.
+3. GitHub will ask you to authorize or install the app. If it asks where to
+   install, choose **your personal GitHub account**, not the club or a work
+   organization. Check that you arrived here from Codex and review the permissions.
+4. Under **Repository access**, choose **All repositories** for your club-building
+   account. Complete the **Install / Authorize** prompts, then return to Codex.
+   This avoids having to add each new weekly repo to the connection manually.
+
+> [!WARNING]
+> **Know what “All repositories” allows.** It covers the app's requested access
+> across that account's current and future repos, including private ones. It does
+> not make them public. If you keep sensitive or work projects there, choose
+> **Only select repositories** and add `cpvc-02-understudy` instead. That still
+> supports agentic work; you will need to add future club repos yourself.
+
+### B. Select your repo and create its workspace
+
+1. Back in Codex, select **your username / cpvc-02-understudy**, not
+   `calpolyvibecoding-01/cpvc-02-understudy-template`. Having access to every repo
+   does not select the right one for this task.
+2. If asked to create an **environment**, do so for your repo. It is Codex's cloud
+   workspace for reading files, making changes and running checks. This starter
+   needs no API keys, secrets, packages or setup commands.
+3. Wait for setup to finish, then select that environment and the **main** branch
+   for your first task. Your committed SPEC and AGENTS edits should be there.
+
+> [!TIP]
+> **Already connected, or your new repo is missing?** In GitHub, open your profile
+> menu → **Settings → Applications → Installed GitHub Apps**. Find the app you
+> connected from Codex, choose **Configure**, then check **Repository access**.
+> Choose **All repositories**, or add your new repo to the selected list, and
+> **Save**. Return to Codex and refresh the repo list. These are account settings,
+> not the repository's Settings tab. If the account is wrong or access is still
+> missing, ask an officer or use Lane C. Do not create extra copies to fix access.
+
+### C. Prove the connection works before editing
+
+Send this in the Codex task for your repo:
 
 > Read AGENTS.md, SPEC.md, index.html and my selected profile. Do not edit yet.
 > Summarize my reader's question, one claim the data supports, and my reader rule.
 > Flag any unfilled TARGET line or unsupported assumption before building.
+
+You should get details from **your edited files**, not a generic explanation of
+GitHub. Being signed in alone is not the check. If it cannot read the files,
+return to the access and environment steps above.
+
+[Setup reference](https://learn.chatgpt.com/docs/cloud) ·
+[GitHub app access settings](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
 
 ---
 
@@ -118,6 +169,24 @@ features. Record any untested checks.
 Ask Codex to open a **pull request** (a change proposal). Review **Files changed**,
 then merge. After deployment, refresh your Pages link and check the result. Submit
 the link and build type at [calpolyvibecoding.com](https://calpolyvibecoding.com).
+
+> [!NOTE]
+> **You coordinate; the agent changes files.** Open the PR link from Codex in
+> GitHub. If it needs work, request a focused revision in the same Codex task,
+> then refresh **Files changed**. You do not need to copy the HTML back manually.
+> You still decide whether to merge; connecting GitHub is not approval to ship.
+
+<details>
+<summary>Optional: ask Codex for a revision directly from the GitHub PR</summary>
+
+Once Codex cloud is connected for the repo, a PR comment such as
+`@codex make the main action readable on phones; change only index.html; do not merge`
+starts a cloud task using that PR as context. Follow its task link and review the
+updated branch before merging. If access prevents it, return to your Codex task.
+This is optional, not another setup requirement for the guided hour.
+[How PR comments work](https://learn.chatgpt.com/docs/third-party/github#give-codex-other-tasks).
+
+</details>
 
 ---
 
