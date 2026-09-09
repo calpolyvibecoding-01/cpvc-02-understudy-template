@@ -25,6 +25,10 @@ Bring a laptop and GitHub account. Lane A uses Codex on your personal ChatGPT
 account, not Cal Poly's workspace.
 
 > [!TIP]
+> **Back-to-school offer:** Check the [ChatGPT student offer](https://chatgpt.com/students/2026/)
+> for eligibility and current terms before signing up.
+
+> [!TIP]
 > **No card or Codex access?** [Lane B](#appendix-lane-b-browser-fallback) needs no card,
 > Codex access, download or API key. You still practice the same core lesson.
 
