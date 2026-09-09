@@ -126,6 +126,12 @@ With **@GitHub** selected, send this in your new Codex task:
 > Summarize my reader's question, one claim the data supports, and my reader rule.
 > Flag any unfilled TARGET line or unsupported assumption before building.
 
+![Codex prompt with GitHub selected and the read-only brief-check prompt ready to send](codex-read-brief.png)
+
+*Before sending: look for the GitHub label at the start of your prompt, and replace
+`[paste your GitHub repo URL]` with your own repo link. The model, folder and other
+settings shown are examples, not settings you need to match.*
+
 You should get details from **your edited files**, not a generic explanation of
 GitHub. Being signed in alone is not the check. If it cannot read the files,
 return to the plugin sign-in and repository-access steps above.
