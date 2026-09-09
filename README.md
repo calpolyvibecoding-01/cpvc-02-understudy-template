@@ -71,17 +71,20 @@ can check on screen. Commit it. SPEC is today's target; AGENTS is the standing b
 
 ### A. Connect your GitHub account
 
-Keep **your GitHub repo** open. Open [Codex](https://chatgpt.com/codex) in a second
-tab. GitHub holds your files and the final review; Codex is where you brief the agent.
+Keep **your GitHub repo** open. In Codex, use the **Plugins** entry in the left
+pane. GitHub holds your files and the final review; Codex is where you brief the agent.
 
 1. **Sign in to your personal ChatGPT account**, not the Cal Poly workspace.
-2. Choose **Connect GitHub** when prompted. Sign in to the GitHub account that
-   owns the copy you made in Part 1. This is a connection between accounts, not
-   uploading a ZIP or pasting a repository link into an ordinary chat.
-3. GitHub will ask you to authorize or install the app. If it asks where to
+2. Click **Plugins** in the left pane, search for **GitHub**, and open the GitHub
+   plugin. Click **Install** (or the **+** install button). Do not wait for an
+   automatic connection prompt when you open Codex.
+3. Use the plugin's **Connect / Sign in** step and log in to the GitHub account
+   that owns your copy from Part 1. Installing the plugin and signing in are
+   separate steps; finish both.
+4. GitHub will ask you to authorize or install the app. If it asks where to
    install, choose **your personal GitHub account**, not the club or a work
    organization. Check that you arrived here from Codex and review the permissions.
-4. Under **Repository access**, choose **All repositories** for your club-building
+5. Under **Repository access**, choose **All repositories** for your club-building
    account. Complete the **Install / Authorize** prompts, then return to Codex.
    This avoids having to add each new weekly repo to the connection manually.
 
@@ -92,39 +95,42 @@ tab. GitHub holds your files and the final review; Codex is where you brief the 
 > **Only select repositories** and add `cpvc-02-understudy` instead. That still
 > supports agentic work; you will need to add future club repos yourself.
 
-### B. Select your repo and create its workspace
+### B. Start a task with GitHub and your repo
 
-1. Back in Codex, select **your username / cpvc-02-understudy**, not
-   `calpolyvibecoding-01/cpvc-02-understudy-template`. Having access to every repo
-   does not select the right one for this task.
-2. If asked to create an **environment**, do so for your repo. It is Codex's cloud
-   workspace for reading files, making changes and running checks. This starter
-   needs no API keys, secrets, packages or setup commands.
-3. Wait for setup to finish, then select that environment and the **main** branch
-   for your first task. Your committed SPEC and AGENTS edits should be there.
+1. Return to Codex after sign-in and start a **new task** so the installed plugin
+   is available. Type **@** and choose **GitHub** to include it in your request.
+2. Paste the URL of **your username / cpvc-02-understudy**, not the club's template.
+   Having access to every repo does not tell the agent which one you mean.
+3. Use the read-only prompt below to check the committed files on **main**.
+   This plugin path does not require you to create a Codex cloud environment.
+   No API keys, secrets or packages are needed for the starter.
 
 > [!TIP]
-> **Already connected, or your new repo is missing?** In GitHub, open your profile
+> **Plugin installed but not connected?** Go back to **Plugins → GitHub** and
+> complete sign-in. Then start a new task with **@GitHub**.
+>
+> **Connected, but the agent cannot access your repo?** In GitHub, open your profile
 > menu → **Settings → Applications → Installed GitHub Apps**. Find the app you
 > connected from Codex, choose **Configure**, then check **Repository access**.
 > Choose **All repositories**, or add your new repo to the selected list, and
-> **Save**. Return to Codex and refresh the repo list. These are account settings,
+> **Save**. Return to Codex and retry with your repo URL. These are account settings,
 > not the repository's Settings tab. If the account is wrong or access is still
 > missing, ask an officer or use Lane C. Do not create extra copies to fix access.
 
 ### C. Prove the connection works before editing
 
-Send this in the Codex task for your repo:
+With **@GitHub** selected, send this in your new Codex task:
 
-> Read AGENTS.md, SPEC.md, index.html and my selected profile. Do not edit yet.
+> In [paste your GitHub repo URL], read AGENTS.md, SPEC.md, index.html and my
+> selected profile from main. Do not edit yet.
 > Summarize my reader's question, one claim the data supports, and my reader rule.
 > Flag any unfilled TARGET line or unsupported assumption before building.
 
 You should get details from **your edited files**, not a generic explanation of
 GitHub. Being signed in alone is not the check. If it cannot read the files,
-return to the access and environment steps above.
+return to the plugin sign-in and repository-access steps above.
 
-[Setup reference](https://learn.chatgpt.com/docs/cloud) ·
+[Plugin setup reference](https://learn.chatgpt.com/docs/plugins#install-and-use-a-plugin) ·
 [GitHub app access settings](https://docs.github.com/en/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)
 
 ---
@@ -140,7 +146,8 @@ return to the access and environment steps above.
 Then send:
 
 > Build the smallest useful page that answers SPEC.md and follows AGENTS.md.
-> Change only index.html. Put the answer first, show its source fields, and give
+> Work on a new branch, not main. Change only index.html. Put the answer first,
+> show its source fields, and give
 > the reader one useful next action. Keep facts, interpretation and questions
 > distinct. Test the page and show what changed. Do not open a PR or merge yet.
 
@@ -179,7 +186,8 @@ the link and build type at [calpolyvibecoding.com](https://calpolyvibecoding.com
 <details>
 <summary>Optional: ask Codex for a revision directly from the GitHub PR</summary>
 
-Once Codex cloud is connected for the repo, a PR comment such as
+This is a separate Codex cloud feature, not enabled by installing the GitHub
+plugin alone. Once Codex cloud is set up for the repo, a PR comment such as
 `@codex make the main action readable on phones; change only index.html; do not merge`
 starts a cloud task using that PR as context. Follow its task link and review the
 updated branch before merging. If access prevents it, return to your Codex task.
