@@ -14,7 +14,8 @@ Do not try to reproduce all its features today.
 ## The finish line
 
 By 1 PM: one fictional profile, one specific reader, one supported claim, one
-instruction-file rule followed, a reviewed change and a live link.
+instruction-file rule followed, a reviewed change and a live link registered in
+the club's build database.
 
 > [!NOTE]
 > When you reach a **STOP**, wait there. We move as a room. Done early? Help
@@ -36,17 +37,10 @@ Keep last week's repo. No personal data.
 In your copy: **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
 Open GitHub's displayed link after deployment. For a 404, check **Actions** and refresh.
 
----
+### Required: submit your live link before continuing
 
-> [!IMPORTANT]
-> ## 🛑 STOP 1 · Your starter is live
->
-> Do not move on until **your link opens and shows the starter**. It reports
-> facts, not a recommendation. Need help? Ask an officer. Done? Check on a neighbor.
-
----
-
-## 2. Decide before prompting
+As soon as your Pages link opens successfully, register it in the club's build
+database. **Submit the starter now; do not wait for the finished build.**
 
 Choose one file: `profile-starter.json` (one new project), `profile-finance.json`,
 `profile-software.json` or `profile-consumer.json`. All four are fictional.
@@ -55,6 +49,37 @@ Choose an approach, not a different curriculum track:
 
 - **Analyzer:** What does this evidence support, and what should the reader ask next?
 - **Showcase:** Which project should lead, and how would you explain its purpose?
+
+1. Open [calpolyvibecoding.com/portal](https://calpolyvibecoding.com/portal).
+2. **Log in or sign up**, then click **Builds** in the top right.
+3. Under **Post this week's build**, paste your **live GitHub Pages URL** into
+   **Link**, not the GitHub repository URL.
+4. In **What is it?**, write one sentence naming your **profile filename** and
+   **Analyzer or Showcase** approach. For example:
+   “Session 2 starter using profile-finance.json; Showcase path to help an
+   interviewer choose which project to ask about.”
+5. Click **Post it** and confirm your submission succeeded. If it fails, ask an
+   officer before continuing.
+
+Your page can still look like the starter. The description records what you plan
+to build; it does not claim the finished result already exists.
+
+---
+
+> [!IMPORTANT]
+> ## 🛑 STOP 1 · Live and submitted
+>
+> Do not move on until **your Pages link opens and you have submitted it through
+> the portal**, with your **profile filename and Analyzer or Showcase choice**
+> in the description. Then continue to Part 2 when the room moves on.
+> Need help? Ask an officer. Done? Check on a neighbor.
+
+---
+
+## 2. Decide before prompting
+
+Use the profile and approach you submitted in Part 1. Now decide who your reader
+is and what they need to understand.
 
 Edit [SPEC.md](SPEC.md) with the pencil. Fill its **six TARGET lines**, then commit.
 Name one person or situation, not “employers.” Missing data is a gap, not permission
@@ -180,8 +205,9 @@ features. Record any untested checks.
 ## 5. Ship the reviewed change
 
 Ask Codex to open a **pull request** (a change proposal). Review **Files changed**,
-then merge. After deployment, refresh your Pages link and check the result. Submit
-the link and build type at [calpolyvibecoding.com](https://calpolyvibecoding.com).
+then merge. After deployment, refresh the **same Pages link you submitted in
+Part 1** and check the result. Your submitted URL now shows the updated build;
+you do not need a second submission for the same link.
 
 > [!NOTE]
 > **You coordinate; the agent changes files.** Open the PR link from Codex in
