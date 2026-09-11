@@ -6,6 +6,16 @@ Build a one-page website or mini-app about something you care about, with one th
 
 [See the coastal demo](https://calpolyvibecoding-01.github.io/cpvc-02-understudy-template/examples/coast/). It is one example, not your assignment. Your project can be about music, sports, fashion, a business idea, a fandom, or something else.
 
+**Start here, before anything else:**
+
+> What's something you're into, or something you wish existed, that you could turn into a website you'd actually use or send a friend?
+
+Then finish this sentence:
+
+> **I'm building ___ for ___ so they can ___.**
+
+Who is it for, and what is the one thing they can do on it? Scope for today is **one page, one main interaction, no required external service.** You can revisit last week's idea in this week's fresh template.
+
 **Finish line:** a working public page, one saved instruction visibly followed, and the same live link you registered at the beginning.
 
 ## 1. Copy and deploy the untouched starter

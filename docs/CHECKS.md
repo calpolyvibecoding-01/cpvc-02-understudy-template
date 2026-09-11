@@ -64,3 +64,57 @@ A local HTTP preview is not publication evidence. An agent cannot infer portal s
 5. For Sam's student-path rehearsal, copy the released template into the intended account, deploy the untouched starter, open its actual URL, and complete the portal submission personally or explicitly authorize a database write. Confirm the entry exists before STOP 1. Later merges update that same submitted root URL; do not create a duplicate entry.
 
 If the repo does not offer Use this template, enabling its template setting requires explicit approval. No repository settings were changed during preparation.
+
+---
+
+## Addendum — Cowork session, September 11, 2026 (~09:5x PDT)
+
+Two changes were made to this working tree on top of the revision described
+above. The finished SLO COAST example was **not** touched: every file under
+`examples/coast/` is byte-identical to what was already on disk.
+
+### What changed
+
+1. **`README.md`** — inserted the opening question and the
+   "I'm building ___ for ___ so they can ___." sentence near the top, plus the
+   one-page / one-interaction / no-required-service scope line. These were in
+   the session plan but were not visible anywhere in the student route.
+   No section heading, ordering, or prompt text was altered.
+2. **`index.html`** — two fixes to the neutral starter:
+   - `href="README.md"` served raw Markdown once published, so a student
+     clicking "Follow the build guide" got a text file instead of the guide.
+     It now points at a repository README, and on a `*.github.io` project path
+     a short script rewrites it to the **student's own** repository.
+   - Added a live-URL field with a Copy link button, because Step 2 asks
+     students to submit that exact address and the page never showed it.
+     Falls back to selecting the text when the clipboard is unavailable, and
+     says so plainly when opened as a local `file://`.
+
+### Re-verified after the change
+
+| Check | Result |
+| --- | --- |
+| `node tests/check.cjs` | 48 checks passed, 20 time/vibe combinations exercised |
+| Starter served at a project subpath (`/cpvc-02-understudy/`) | Pass, no console errors |
+| Starter at 390 px | Pass, no horizontal overflow |
+| Starter external network requests | None |
+| Live-URL field shows the correct address at the subpath | Pass |
+| Build-guide link rewrites to the visitor's own repo on a `github.io` host | Pass (`https://github.com/<user>/<repo>#readme`) |
+| Clipboard unavailable | Falls back to text selection, hint updates |
+| Opened as `file://` | Hides the copy button, explains why |
+| `examples/coast/` still loads at the nested subpath and returns a recommendation | Pass, no console errors |
+| `examples/coast/` byte-for-byte unchanged | Pass |
+
+Neutral root HTML is now **4,665 bytes** (was 2,649). Still no external fonts,
+images, or remote requests.
+
+### Still not verified
+
+- Nothing above was tested on a real GitHub Pages deployment. The published
+  demo URL in `README.md`
+  (`https://calpolyvibecoding-01.github.io/cpvc-02-understudy-template/examples/coast/`)
+  returns **404 today**, as expected, because `main` has not been released. It
+  becomes correct after the merge, and should be opened once to confirm.
+- No push, merge, Pages-settings change, portal submission or outside tester
+  was used. The Cowork session had **no GitHub write access** to the repository,
+  so nothing was pushed from it.
