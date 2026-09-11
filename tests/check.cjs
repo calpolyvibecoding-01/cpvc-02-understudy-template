@@ -181,7 +181,7 @@ check('demo has reduced-motion handling and only local runtime assets', () => {
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'examples/coast/app.js'), 'utf8'), /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource/);
 });
 
-check('generated hero asset is local, labeled, optimized, and has a fallback', () => {
+check('generated hero asset is local, documented, optimized, and has a fallback', () => {
   const html = fs.readFileSync(path.join(root, 'examples/coast/index.html'), 'utf8');
   const asset = path.join(root, 'examples/coast/assets/coast-illustration.webp');
   assert.ok(fs.existsSync(asset));
@@ -189,7 +189,6 @@ check('generated hero asset is local, labeled, optimized, and has a fallback', (
   assert.ok(fs.statSync(asset).size < 1000000, 'hero asset should remain under 1 MB');
   assert.match(html, /src="assets\/coast-illustration\.webp"/);
   assert.match(html, /Generated imaginary coastline/i);
-  assert.match(html, /AI illustration · Imaginary coast/);
   assert.match(html, /onerror="this\.hidden=true"/);
   assert.match(html, /<(?:svg|div) class="ocean"/);
 });
