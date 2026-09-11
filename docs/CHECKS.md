@@ -9,16 +9,16 @@ Candidate branch: `codex/coast-understudy-20260911`, based on fetched `main` at 
 | Preference matrix | All 20 time/vibe pairs exercised both in Node and the interactive browser. One supported result each; selected labels and sky state agree. |
 | Determinism and truthful partial matches | Node checks cover repeatability, stable ties, distinct results across time, known examples, partial-match wording and surf boundaries. |
 | Data failures | Node checks cover missing, empty, malformed and duplicate data, invalid choices and untrusted source URLs. A browser copy with data.js absent displayed the recovery message instead of a recommendation. |
-| Reselect and keyboard | Change my choices hides the old result and focuses Time. Native keyboard selection, Tab navigation and visible focus inspected. |
+| Reselect and keyboard | Find another moment clears the result with a finite wave sweep, preserves choices and focuses the checked time radio. Arrow-key selection verified in the real browser. Controller checks cover reset cancellation and rapid resubmission. |
 | Responsive layout | Starter and demo tested at actual 390, 768 and 1366 px viewports. No horizontal overflow. Desktop, tablet and phone demo screenshots visually inspected; one DOM result confirmed. |
-| Contrast | Computed foreground/background ratios: main ink 10.28:1, supporting copy 5.57:1, result eyebrow 5.79:1, primary button 10.99:1, hero accent 5.01:1. Text surfaces stay fixed across time palettes. |
-| Motion and fallback | Source check confirms reduced-motion disables transitions/animations. Wave response is finite; sun uses a transform. The richer generated WebP is the primary hero; the original inline SVG remains only as an image-failure fallback. A browser test with the WebP deliberately absent hid the failed image, displayed the fallback, and still produced a recommendation. OS reduced-motion emulation was not exercised. |
+| Contrast | Latest composition uses fixed cream control/result surfaces and a dark reading shade behind hero text. Laptop, tablet and phone text were visually inspected. Previous composition contrast ratios do not certify this revision; no complete automated accessibility audit is claimed. |
+| Motion and fallback | Source check confirms reduced-motion disables transitions/animations. Wave response is finite; sun uses a transform. The richer generated WebP is the primary hero; the original inline SVG remains only as an image-failure fallback. A browser test with the WebP deliberately absent hid the failed image, displayed the fallback, and still produced a recommendation. The latest controller reduced-motion branch is covered by Node DOM tests; OS reduced-motion emulation was not exercised. Missing-image/data browser checks were performed before the latest composition revision, not rerun afterward. |
 | Static project paths | Local HTTP 200 for root and nested demo plus all three dependencies. Root-to-example link exercised. Demo assets resolve within examples/coast/, independent of root code. |
-| Transfer size | Neutral root HTML: 2,649 bytes. The richer hero is a local 1536 × 1024 WebP of 313,988 bytes; final initial demo payload measured 336,672 bytes over local HTTP (HTML 5,688; CSS 10,043; app 4,724; data 2,229; image 313,988). No external fonts or remote image services are used. This is bytes measured locally, not a device speed benchmark. |
+| Transfer size | Neutral root HTML: 2,649 bytes. The richer hero is a local 1536 × 1024 WebP of 313,988 bytes; latest initial demo files total 342,466 bytes (HTML 6,548; CSS 12,844; app 6,857; data 2,229; image 313,988). No external fonts or remote image services are used. This is bytes measured locally, not a device speed benchmark. |
 | Runtime boundaries | No fetch, runtime model, API key, backend, analytics, geolocation or date service. Data inserted with textContent; official source URL allowlist. |
 | Student route | README and AGENTS enforce deployment and successful portal submission before personal building. Non-coastal choices work with the same route. One completed coast TARGET is supplied as an example. |
 | Preservation and privacy | Original checkout preserved. Four old JSON fixtures have no diff against origin/main. Private input directory is outside this worktree; no bundle, private brief, feedback or source-document URL staged. |
-| Code hygiene | `node tests/check.cjs` passed all 38 checks; `git diff --check` passed. Browser reported no warnings/errors on the working demo; deliberately missing data produced the expected separate test failure. |
+| Code hygiene | `node tests/check.cjs` passed all 45 checks; `git diff --check` passed. Browser reported no warnings/errors on the working demo; deliberately missing data produced the expected separate test failure. |
 
 ## Final review and routing
 
@@ -29,6 +29,14 @@ The documentation/test worker was dispatched with `model: gpt-5.6-sol`, `reasoni
 ## One bounded visual-polish pass
 
 The actual generated image was integrated before polish. Three rendered mismatches were corrected: the wash/sun overlay was reduced to preserve the detailed image; the 768px title/image balance was adjusted; and phone controls were stacked below 420px with a more readable illustration caption. The palette now interpolates through a finite background-color transition. Final CUA renders covered 1366×900, 768×900 and 390×844; the primary image decoded at 1536×1024. The main task also inspected the final laptop composition and phone interaction in the in-app browser. Neither an SVG fallback nor a source-only inspection was counted as the completed rich visual.
+
+## Latest interactive composition revision
+
+Sam rejected the earlier oversized split hero and explicitly requested this bounded upgrade. The main task set and implemented the new composition; the existing Sol Medium-requested worker handled only the radio controller and tests after that direction existed. No new open-ended review cycle was added.
+
+Three largest mismatches were corrected: the choices now share the first screen with the full-width coastal scene; time selection changes sky, ocean tone and sun position instead of a subtle background change; and tactile native-radio controls lead into a staged result reveal and finite wave reset. The same detailed local generated illustration remains explicitly imaginary, including in the result.
+
+Actual CUA renders inspected at 1366×900, 768×900 and 390×844, including the phone result. All 20 radio combinations were submitted in the real page; result labels and selected time state matched. Midday and Sunset renders visibly differed. No horizontal overflow at the inspected sizes. Reset restored selected-radio focus and preserved choices; arrow-key navigation updated the scene. Browser error/warning log was empty. Node passed 45 checks including reduced-motion and interrupted-reset branches. No device performance benchmark or complete accessibility audit was performed.
 
 ## Not yet verified
 
@@ -42,7 +50,7 @@ A local HTTP preview is not publication evidence. An agent cannot infer portal s
 ## Sam's first five minutes
 
 1. Open both local previews. The neutral root should appear first; follow its example link to SLO COAST.
-2. Try Morning + Surf (Pismo), Sunset + Surf (Morro Rock), and Midday + Relax (Avila). Watch the sky, then press Find my spot. Change my choices should return focus to Time.
+2. Try Morning + Surf (Pismo), Sunset + Surf (Morro Rock), and Midday + Relax (Avila). Watch the sky, sun and water change, then press Find my spot. Find another moment should sweep away the result and return focus to the selected time.
 3. Read one place fact, source, editorial reason and safety note. The illustration is imaginary coastal scenery.
 4. Scan README Steps 1–4: untouched starter deployment and successful portal submission must precede personal building. Check that the fallback also saves the approved rule.
 5. Rehearse the short opening and STOP calls in FACILITATOR.md. Use the remaining reserved 25–30 minutes for your walkthrough; cut the optional copy revision if time is tight.

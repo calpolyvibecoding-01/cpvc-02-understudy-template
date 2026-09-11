@@ -29,34 +29,94 @@ function recommend(data,time,vibe){
 if(typeof module!=='undefined'&&module.exports) module.exports={TIMES,VIBES,recommend,validPlace};
 if(typeof document!=='undefined'){
   const form=document.getElementById('coast-form');
-  const time=document.getElementById('time'),vibe=document.getElementById('vibe');
   const result=document.getElementById('result'),status=document.getElementById('status');
-  let motionTimer;
-  function synchronize(){
-    document.body.dataset.time=time.value;
-    document.getElementById('mood-label').textContent=TIMES[time.value]||'Coastal light';
-    result.hidden=true;
-    status.textContent='Choices updated. Find your spot to see this pick.';
+  const resultStage=result.parentElement;
+  const spotName=document.getElementById('spot-name');
+  const moodLabel=document.getElementById('mood-label');
+  const scenePhase=document.getElementById('scene-phase');
+  const changePick=document.getElementById('change-pick');
+  let waveTimer,revealTimer,resetMidpoint,resetEnd;
+  const reducedMotion=()=>typeof matchMedia==='function'&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const selected=(name)=>form.querySelector(`input[name="${name}"]:checked`);
+  const value=(name)=>selected(name)?.value;
+  function clearReset(){
+    clearTimeout(resetMidpoint);clearTimeout(resetEnd);
+    resetMidpoint=resetEnd=undefined;
+    document.body.classList.remove('is-resetting');
+    resultStage.style.minHeight='';
+  }
+  function updateMood(time){
+    document.body.dataset.time=time;
+    const label=TIMES[time]||'Coastal light';
+    moodLabel.textContent=label;
+    if(scenePhase) scenePhase.textContent=label;
+  }
+  function pulseWave(){
+    clearTimeout(waveTimer);
     document.body.classList.remove('wave-response');
-    clearTimeout(motionTimer);
-    // Restart the finite response when changing a choice; no idle animation.
+    if(reducedMotion()) return;
     void document.body.offsetWidth;
     document.body.classList.add('wave-response');
-    motionTimer=setTimeout(()=>document.body.classList.remove('wave-response'),850);
+    waveTimer=setTimeout(()=>document.body.classList.remove('wave-response'),900);
   }
-  time.addEventListener('change',synchronize);vibe.addEventListener('change',synchronize);
+  function hideStaleResult(){
+    clearTimeout(revealTimer);
+    result.hidden=true;
+    result.classList.remove('revealing');
+  }
+  function synchronize(){
+    clearReset();
+    hideStaleResult();
+    updateMood(value('time'));
+    status.textContent='Choices updated. Find your spot to see this pick.';
+    pulseWave();
+  }
+  form.querySelectorAll('input[type="radio"][name="time"], input[type="radio"][name="vibe"]').forEach(input=>input.addEventListener('change',synchronize));
+  updateMood(value('time'));
   form.addEventListener('submit',event=>{
     event.preventDefault();
-    const pick=recommend(globalThis.COAST_DATA,time.value,vibe.value);
+    clearReset();
+    clearTimeout(revealTimer);
+    result.classList.remove('revealing');
+    const pick=recommend(globalThis.COAST_DATA,value('time'),value('vibe'));
     if(pick.error){result.hidden=true;status.textContent=pick.error;return;}
     document.getElementById('selection-label').textContent=`Your pick / ${TIMES[pick.time]} + ${VIBES[pick.vibe]}`;
-    document.getElementById('spot-name').textContent=pick.place.name;
+    spotName.textContent=pick.place.name;
     document.getElementById('spot-reason').textContent=pick.reason;
     document.getElementById('spot-fact').textContent=`Place fact: ${pick.place.fact}`;
     document.getElementById('spot-note').textContent=pick.note;
     document.getElementById('spot-source').href=pick.place.source;
     result.hidden=false;
+    if(!reducedMotion()){
+      void result.offsetWidth;
+      result.classList.add('revealing');
+      revealTimer=setTimeout(()=>result.classList.remove('revealing'),650);
+    }
     status.textContent=`${pick.place.name}. ${pick.partial?'Vibe match; no distinct time match.':'A curated preference match.'}`;
+    spotName.setAttribute('tabindex','-1');
+    spotName.focus({preventScroll:true});
+    const bounds=result.getBoundingClientRect();
+    if(bounds.top<0||bounds.bottom>innerHeight) result.scrollIntoView({behavior:reducedMotion()?'auto':'smooth',block:'nearest'});
   });
-  document.getElementById('change-pick').addEventListener('click',()=>{result.hidden=true;status.textContent='Choose a time and vibe, then find your next spot.';time.focus();});
+  changePick.addEventListener('click',()=>{
+    clearReset();
+    clearTimeout(waveTimer);document.body.classList.remove('wave-response');
+    clearTimeout(revealTimer);result.classList.remove('revealing');
+    const finish=()=>{
+      document.body.classList.remove('is-resetting');
+      resultStage.style.minHeight='';
+      selected('time')?.focus();
+    };
+    const midpoint=()=>{
+      result.hidden=true;
+      status.textContent='Choose a time and vibe, then find your next spot.';
+    };
+    if(reducedMotion()){
+      midpoint();finish();return;
+    }
+    resultStage.style.minHeight=`${Math.ceil(resultStage.getBoundingClientRect().height)}px`;
+    document.body.classList.add('is-resetting');
+    resetMidpoint=setTimeout(midpoint,450);
+    resetEnd=setTimeout(finish,900);
+  });
 }
