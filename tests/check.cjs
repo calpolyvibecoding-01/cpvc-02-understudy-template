@@ -200,6 +200,8 @@ check('time mood uses a finite color transition with reduced-motion coverage', (
   assert.match(css, /\.sun\{[^}]*transition:left \.85s,top \.85s/);
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)[\s\S]*transition:none!important/);
   assert.doesNotMatch(css, /animation:[^;]*(infinite|linear\s+infinite)/i);
+  assert.match(css, /body\[data-time=sunrise\][^{]*\{[^}]*--light-position:0%/);
+  assert.match(css, /body\[data-time=sunset\][^{]*\{[^}]*--sun-x:73%;[^}]*--light-position:100%/);
 });
 
 check('new native-radio DOM contract is complete with intended defaults', () => {
