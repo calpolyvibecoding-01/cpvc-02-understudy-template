@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#103d44"><meta name="description" content="Pick a time and a vibe. Find one curated SLO County coastal spot."><title>SLO COAST · Find your SLO beach.</title><link rel="stylesheet" href="style.css"><script defer src="data.js"></script><script defer src="app.js"></script></head>
+<body data-time="golden-hour">
+<svg class="symbol-library" aria-hidden="true"><defs>
+<symbol id="icon-surf" viewBox="0 0 32 32"><path d="M3 23c8 0 7-15 18-15-6 3-6 10-1 10 4 0 6-3 6-3s-1 8 4 9M3 28c7-4 14 4 22 0"/></symbol>
+<symbol id="icon-relax" viewBox="0 0 32 32"><path d="M3 27h26M8 22l6-11 10 11M11 17h10M14 11l-2-5M23 8V3m-4 5 4-5 4 5"/></symbol>
+<symbol id="icon-walk" viewBox="0 0 32 32"><circle cx="20" cy="5" r="3"/><path d="m15 11-4 7-7 1m11-8 6 5 7 1m-13-6 1 10-7 8m7-8 6 7"/></symbol>
+<symbol id="icon-scenery" viewBox="0 0 32 32"><circle cx="23" cy="8" r="4"/><path d="M2 26 12 10l10 16M17 18l4-5 9 13M3 29h27"/></symbol>
+</defs></svg>
+<header class="masthead"><a class="brand" href="./" aria-label="SLO Coast home"><svg aria-hidden="true"><use href="#icon-surf"/></svg>SLO COAST</a><a class="header-action" href="#picker">Find my spot <span aria-hidden="true">↓</span></a></header>
+<main>
+<section class="experience" aria-labelledby="headline">
+<div class="scene" role="img" aria-label="Generated imaginary coastline. Changing light is an artistic mood, not real conditions.">
+<div class="ocean" aria-hidden="true"></div><img class="coast-image" src="assets/coast-illustration.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async" onerror="this.hidden=true">
+<div class="sky-tone"></div><div class="water-tone"></div><div class="night-tone"></div><div class="sun"></div><div class="reading-shade"></div>
+<svg class="shore-response" viewBox="0 0 1500 180" preserveAspectRatio="none" aria-hidden="true"><path d="M-100 120Q200 25 510 105T1600 50M-100 148Q200 53 510 133T1600 78"/></svg>
+</div>
+<div class="hero-copy"><p class="eyebrow">SLO County, California · Follow the light</p><h1 id="headline"><span>Find your</span><span>SLO <em>beach.</em></span></h1><p class="intro">Pick a time and a vibe. We’ll suggest one coastal spot.</p></div>
+<div class="light-label"><span class="eyebrow">Your light, your pace</span><span id="mood-label">Golden hour</span><span class="light-track" aria-hidden="true"><i></i></span></div>
+</section>
+<section class="finder" id="picker" aria-label="Choose your time and coastal vibe">
+<div class="finder-top"><span>Choose your moment</span><span class="step-hint">Two choices. One place to begin.</span></div>
+<form id="coast-form">
+<fieldset id="time-group"><legend><span>01</span> When's your moment?</legend><div class="time-options">
+<label class="choice"><input id="time-sunrise" type="radio" name="time" value="sunrise"><span><i class="time-icon dawn" aria-hidden="true"></i>Sunrise</span></label>
+<label class="choice"><input id="time-morning" type="radio" name="time" value="morning"><span><i class="time-icon morning" aria-hidden="true"></i>Morning</span></label>
+<label class="choice"><input id="time-midday" type="radio" name="time" value="midday"><span><i class="time-icon noon" aria-hidden="true"></i>Midday</span></label>
+<label class="choice"><input id="time-golden-hour" type="radio" name="time" value="golden-hour" checked><span><i class="time-icon golden" aria-hidden="true"></i>Golden hour</span></label>
+<label class="choice"><input id="time-sunset" type="radio" name="time" value="sunset"><span><i class="time-icon dusk" aria-hidden="true"></i>Sunset</span></label>
+</div></fieldset>
+<fieldset id="vibe-group"><legend><span>02</span> What draws you out?</legend><div class="vibe-options">
+<label class="vibe-choice"><input id="vibe-surf" type="radio" name="vibe" value="surf"><span><svg aria-hidden="true"><use href="#icon-surf"/></svg>Surf</span></label>
+<label class="vibe-choice"><input id="vibe-relax" type="radio" name="vibe" value="relax"><span><svg aria-hidden="true"><use href="#icon-relax"/></svg>Relax</span></label>
+<label class="vibe-choice"><input id="vibe-coastal-walk" type="radio" name="vibe" value="coastal-walk"><span><svg aria-hidden="true"><use href="#icon-walk"/></svg>Coastal walk</span></label>
+<label class="vibe-choice"><input id="vibe-scenery" type="radio" name="vibe" value="scenery" checked><span><svg aria-hidden="true"><use href="#icon-scenery"/></svg>Scenery</span></label>
+</div></fieldset>
+<button type="submit" class="find-button">Find my spot <span aria-hidden="true">↗</span></button>
+</form>
+<div class="finder-bottom"><p class="preference-note">Changing light sets a mood, not a forecast.</p><p id="status" role="status">Choose the moment. We'll suggest the place.</p></div>
+</section>
+<div class="result-stage">
+<article id="result" class="result" hidden aria-labelledby="spot-name">
+<div class="pick-art" aria-hidden="true"><img src="assets/coast-illustration.webp" alt="" width="1536" height="1024" loading="lazy" onerror="this.hidden=true"></div>
+<div class="pick-copy"><p id="selection-label" class="eyebrow"></p><h2 id="spot-name" tabindex="-1"></h2><p id="spot-reason"></p><p id="spot-fact" class="fact"></p><p id="spot-note" class="note"></p><div class="result-links"><a id="spot-source" href="#">Place & access ↗</a><a href="https://www.weather.gov/beach/">Coastal advisories ↗</a></div><button type="button" id="change-pick" class="reset-button"><svg aria-hidden="true"><use href="#icon-surf"/></svg>Find another moment <span aria-hidden="true">↻</span></button></div>
+</article>
+<div id="wave-wipe" aria-hidden="true"><svg viewBox="0 0 1600 500" preserveAspectRatio="none"><path class="wave-back" d="M0 100Q200 0 430 90T880 80T1300 80T1600 70V500H0Z"/><path d="M0 140Q200 30 430 130T880 120T1300 120T1600 110V500H0Z"/></svg></div>
+</div>
+<noscript><p class="no-script">Turn on JavaScript for matching. You can still read <a href="SOURCES.md">the places and their official sources</a>.</p></noscript>
+</main>
+<footer><p>Curated suggestions, not live conditions. Check access and coastal advisories before going.</p><span>A Cal Poly Vibe Coding project.</span></footer>
+</body></html>

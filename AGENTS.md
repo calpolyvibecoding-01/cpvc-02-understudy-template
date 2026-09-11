@@ -1,44 +1,38 @@
-# Standing brief
+# Standing instructions for The Understudy
 
-Read SPEC.md before building. If brackets remain or the reader's question is
-unclear, ask before editing. This file briefs the agent; it does not run the page.
+Read the approved SPEC.md before implementation. Students own the idea and approval; you may help with wording and mechanics.
 
-## My reader rule
+## STOP 1: deploy and submit the starter
 
-[Replace with one observable rule. Example: explain each project in ordinary
-language before showing technical terms, without inventing a missing purpose.]
+Before customizing a student's project, ask the student to confirm both facts:
 
-## Scope and evidence
+1. The unchanged starter opens at their actual GitHub Pages URL.
+2. They successfully submitted that URL in **Builds** at https://calpolyvibecoding.com/portal.
 
-- Change only index.html during the build. Preserve the four fictional JSON files.
-- One HTML file with inline CSS and JavaScript. No packages, frameworks, build
-  step, external fonts/assets, live APIs, analytics, runtime AI or keys.
-- Use one selected local fixture. Label it fictional. Show exact source fields
-  beside claims; separate fact, interpretation and questions. Never invent numbers.
-- Use the listed repos array for denominators, not profile.public_repos. README
-  presence is not quality; stars are not business success; pushed_at is not a
-  commit history. If discussing recency, show the reference date and rule.
-- Keep loading, empty and error messages visible with a recovery route. Insert
-  data as text, not trusted HTML. Do not leave broken test data selected.
+Do not infer portal success from a live URL. Do not query private member records or ask for credentials. If either prerequisite is incomplete, help the student follow README Steps 1–2 and stop personal implementation. Read-only setup assistance is allowed.
 
-## Design and review
+This student gate does not block an explicitly authorized maintainer task preparing the template or instructor example. Never invent such authorization.
 
-- Put the reader's answer and next action first. Use clear type, whitespace and
-  one restrained accent. Avoid repeated card boxes and decorative statistics.
-- Use native controls, visible keyboard focus, readable contrast and comfortably
-  sized controls. Prioritize the student desktop; mobile design and testing are
-  not required for this session.
-- Optional motion must explain an action: brief transform/opacity feedback,
-  reduced-motion support, no idle loops or animation library. Visual relationships
-  must come from actual data, not decorative lines that imply evidence.
-- No em dashes or hype in page copy. Prefer plain language.
-- Preview the build branch locally with its unchanged JSON fixtures over HTTP
-  in the Codex desktop app's side browser. Identify the branch being previewed.
-  Keep preview-only files out of the repo and leave Pages publishing from main.
-- Inspect the desktop preview, test the main action and data loading, then
-  summarize what changed in plain language and any untested checks. Point out
-  where the diff lives; do not require students to interpret it or complete a
-  revision round. Do not claim tests you did not run.
-- Do not open a PR or merge until the human approves the reviewed change.
+## STOP 2: approve the brief before building
 
-Done means the six-line TARGET passes, not that every possible feature exists.
+After STOP 1, help the student propose and approve the six TARGET lines and one observable standing rule. Save and read them back from the build branch. Do not start the personal build until the brief is correct and the unchanged starter has a usable preview.
+
+## My standing rule
+
+[One observable, student-approved rule that protects this project's purpose or experience.]
+
+## Workflow
+
+- Verify the intended owner and repo, current branch, actual file contents, execution location, and available tools. Prove a usable preview instead of promising a particular browser.
+- If key choices are missing, ask a few focused questions. Propose the six TARGET lines and standing rule, get approval, then save them on a build branch. Do not silently choose the student's purpose or alter the guardrails.
+- Read the saved SPEC and applicable AGENTS before building and before a follow-up change. Explain the relevant rule briefly.
+- Build one page and one primary interaction with ordinary HTML, CSS, and JavaScript plus approved local assets. Do not impose the coastal example's topic, data, or colors.
+- Preserve `examples/`, shared teaching docs, and publishing settings during a student's personal build. Changes to these require an explicit maintainer request. Keep the instructor example self-contained.
+- Separate reference imagery from factual sources. Use licensed or approved assets; label illustrative or fictional content. Do not fabricate metrics, testimonials, integrations, live conditions, or verification.
+- Do not add secrets, private records, runtime model calls, a backend, a required paid service, or unsolicited analytics.
+- Use safe text rendering, keyboard-operable controls, visible focus, readable contrast, responsive layouts, and reduced-motion support. Prefer short, purposeful transitions over perpetual motion.
+- Run relevant functional and boundary checks. Preview the actual proposed branch before approval and report checks not run. Screenshots or code diffs alone do not establish interactive correctness.
+- After human preview approval, open a PR only when requested. Summarize changed files and tests. Do not merge or publish without explicit approval.
+- After the human merges, verify the same registered root Pages URL. Do not request a duplicate portal submission merely because the content changed.
+
+Done means the approved TARGET works and the student can explain their rule and result.
