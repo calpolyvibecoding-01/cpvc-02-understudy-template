@@ -198,7 +198,7 @@ check('time mood uses a finite color transition with reduced-motion coverage', (
   const css = fs.readFileSync(path.join(root, 'examples/coast/style.css'), 'utf8');
   assert.match(css, /\.sky-tone\{[^}]*transition:background-color \.8s/);
   assert.match(css, /\.water-tone\{[^}]*transition:background-color \.8s/);
-  assert.match(css, /\.sun\{[^}]*transition:transform \.85s/);
+  assert.match(css, /\.sun\{[^}]*transition:left \.85s,top \.85s/);
   assert.match(css, /@media\(prefers-reduced-motion:reduce\)[\s\S]*transition:none!important/);
   assert.doesNotMatch(css, /animation:[^;]*(infinite|linear\s+infinite)/i);
 });
@@ -212,6 +212,13 @@ check('new native-radio DOM contract is complete with intended defaults', () => 
   assert.match(html, /<fieldset id="time-group"/);
   assert.match(html, /<fieldset id="vibe-group"/);
   assert.doesNotMatch(html, /<select\b[^>]+(?:id|name)="(?:time|vibe)"/);
+});
+
+check('visitor header links to the picker and keeps project attribution in the footer', () => {
+  const html = fs.readFileSync(path.join(root, 'examples/coast/index.html'), 'utf8');
+  assert.match(html, /class="header-action" href="#picker">Find my spot/);
+  assert.doesNotMatch(html, /A CPVC example/);
+  assert.match(html, /A Cal Poly Vibe Coding project\./);
 });
 
 function makeDomHarness(reducedMotion = false) {
@@ -355,8 +362,27 @@ check('submit cancels an in-progress reset and reveals the current pick', () => 
   assert.equal(ui.elements.result.hidden, false);
 });
 
+check('rapid reset clicks replace prior timers and finish exactly once', () => {
+  const ui = makeDomHarness();
+  ui.form.dispatch('submit');
+  ui.elements['change-pick'].dispatch('click');
+  ui.elements['change-pick'].dispatch('click');
+  assert.equal(ui.timers.size, 2);
+  assert.equal(ui.resultStage.style.minHeight, '420px');
+  ui.runThrough(450);
+  assert.equal(ui.elements.result.hidden, true);
+  ui.runThrough(900);
+  assert.equal(ui.body.classList.contains('is-resetting'), false);
+  assert.equal(ui.resultStage.style.minHeight, '');
+  assert.equal(ui.times.find((radio) => radio.checked).focusCount, 1);
+  assert.equal(ui.timers.size, 0);
+});
+
 check('reduced motion bypasses reveal and reset delays', () => {
   const ui = makeDomHarness(true);
+  ui.choose('time', 'sunrise');
+  assert.equal(ui.body.dataset.time, 'sunrise');
+  assert.equal(ui.body.classList.contains('wave-response'), false);
   ui.form.dispatch('submit');
   assert.equal(ui.elements.result.hidden, false);
   assert.equal(ui.elements.result.classList.contains('revealing'), false);
@@ -365,6 +391,14 @@ check('reduced motion bypasses reveal and reset delays', () => {
   assert.equal(ui.body.classList.contains('is-resetting'), false);
   assert.equal(ui.timers.size, 0);
   assert.equal(ui.times.find((radio) => radio.checked).focusCount, 1);
+});
+
+check('wave reset overlay is inert and hidden from assistive technology', () => {
+  const html = fs.readFileSync(path.join(root, 'examples/coast/index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'examples/coast/style.css'), 'utf8');
+  assert.match(html, /<div id="wave-wipe" aria-hidden="true">/);
+  assert.match(css, /#wave-wipe\{[^}]*pointer-events:none/);
+  assert.match(css, /@media\(prefers-reduced-motion:reduce\)[^}]*[\s\S]*#wave-wipe\{display:none\}/);
 });
 
 process.stdout.write(`# ${checks} checks passed; 20 time/vibe combinations exercised.\n`);
