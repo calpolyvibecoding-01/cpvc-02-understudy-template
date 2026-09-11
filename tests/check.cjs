@@ -180,4 +180,25 @@ check('demo has reduced-motion handling and only local runtime assets', () => {
   assert.doesNotMatch(fs.readFileSync(path.join(root, 'examples/coast/app.js'), 'utf8'), /\bfetch\s*\(|XMLHttpRequest|WebSocket|EventSource/);
 });
 
+check('generated hero asset is local, labeled, optimized, and has a fallback', () => {
+  const html = fs.readFileSync(path.join(root, 'examples/coast/index.html'), 'utf8');
+  const asset = path.join(root, 'examples/coast/assets/coast-illustration.webp');
+  assert.ok(fs.existsSync(asset));
+  assert.ok(fs.statSync(asset).size > 100000, 'hero asset should retain rich image detail');
+  assert.ok(fs.statSync(asset).size < 1000000, 'hero asset should remain under 1 MB');
+  assert.match(html, /src="assets\/coast-illustration\.webp"/);
+  assert.match(html, /AI-generated imaginary coastline/i);
+  assert.match(html, /AI illustration · Imaginary coast/);
+  assert.match(html, /onerror="this\.hidden=true"/);
+  assert.match(html, /<svg class="ocean"/);
+});
+
+check('time mood uses a finite color transition with reduced-motion coverage', () => {
+  const css = fs.readFileSync(path.join(root, 'examples/coast/style.css'), 'utf8');
+  assert.match(css, /--mood-overlay:/);
+  assert.match(css, /transition:background-color \.55s ease,opacity \.55s ease/);
+  assert.match(css, /@media\(prefers-reduced-motion:reduce\)[\s\S]*transition:none!important/);
+  assert.doesNotMatch(css, /animation:[^;]*(infinite|linear\s+infinite)/i);
+});
+
 process.stdout.write(`# ${checks} checks passed; 20 time/vibe combinations exercised.\n`);

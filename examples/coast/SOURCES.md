@@ -16,6 +16,6 @@ Surf indicates interest only. Consult current official beach notices and [Nation
 
 ## Illustration and design
 
-The original inline SVG/CSS coastal study was authored for this example with build-time AI assistance. It is an imaginary coastal composition, not a photograph, navigational map, real view of a named destination, or measured sun path. No third-party image, external font, generated reference text or business claim is shipped. The result vignette is illustrative too.
+The detailed coastal hero was created with the built-in Imagegen tool and optimized as a local WebP asset. It depicts an imaginary coastline, not a real view of any recommended place or a measured sun path. It must never be used as documentary evidence. See the [asset provenance and generation prompt](assets/PROVENANCE.md). No third-party photograph, external font, reference-image text or business claim is shipped. The result vignette is illustrative too.
 
-The page uses one hero, two native inputs and one result. Time changes the illustrated sky and sun; a brief wave response settles in under a second. Reduced-motion preferences disable animation. No external packages, runtime API, geolocation, model call or image download is required.
+The page uses one hero, two native inputs and one result. Time changes the illustrated sky and sun; a brief wave response settles in under a second. Reduced-motion preferences disable animation. The optimized illustration is served locally with the page. No external package, runtime API, geolocation or model call is required.
